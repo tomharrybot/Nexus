@@ -3,6 +3,7 @@ eventlet.monkey_patch()
 
 from flask import Flask, render_template, request, jsonify, send_from_directory, session
 from flask_socketio import SocketIO, emit, join_room, leave_room
+from flask_cors import CORS
 import requests
 import os
 import json
@@ -20,6 +21,15 @@ import mimetypes
 import tempfile
 from functools import wraps
 from pymongo import MongoClient, errors as mongo_errors
+
+
+# 👇 Ye block bhi add karein
+@app.after_request
+def after_request(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE,OPTIONS'
+    return response
 
 # Pakistan Standard Time (UTC+5) - All timestamps use UTC with Z suffix
 # so browsers auto-convert to local (PKT) time correctly
