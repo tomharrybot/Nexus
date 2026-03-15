@@ -24,7 +24,6 @@ from pymongo import MongoClient, errors as mongo_errors
 
 
 # 👇 Ye block bhi add karein
-@app.after_request
 def after_request(response):
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
