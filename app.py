@@ -216,8 +216,8 @@ def generate_otp():
 
 def send_email_otp(to_email, otp):
     try:
-        sender_email = os.environ.get("MAIL_USERNAME", "mamir34310@gmail.com")
-        sender_password = os.environ.get("MAIL_PASSWORD", "vlycilovlpejgqev")
+        sender_email = os.environ.get("MAIL_USERNAME")
+        sender_password = os.environ.get("MAIL_PASSWORD")
 
         msg = MIMEMultipart()
         msg['From'] = sender_email
@@ -236,30 +236,31 @@ def send_email_otp(to_email, otp):
             <p style="color: #999; font-size: 12px; text-align: center;">If you didn't request this code, please ignore this email.</p>
         </div>
         """
-
         msg.attach(MIMEText(html, 'html'))
 
-        with smtplib.SMTP('smtp.gmail.com', 587, timeout=15) as server:
+        with smtplib.SMTP('smtp-relay.brevo.com', 587, timeout=15) as server:
             server.ehlo()
             server.starttls()
             server.ehlo()
             server.login(sender_email, sender_password)
             server.send_message(msg)
+
         print(f"OTP email sent successfully to {to_email}")
         return True
     except Exception as e:
-        print(f"Email error: {e}")
+        print(f"Brevo Email error: {e}")
         return False
 
-# Added: Login Email Notification with Location (IP)
 def send_login_alert(to_email, ip_address, device_info):
     try:
-        sender_email = os.environ.get("MAIL_USERNAME", "mamir34310@gmail.com")
-        sender_password = os.environ.get("MAIL_PASSWORD", "vlycilovlpejgqev")
+        sender_email = os.environ.get("MAIL_USERNAME")
+        sender_password = os.environ.get("MAIL_PASSWORD")
+
         msg = MIMEMultipart()
         msg['From'] = sender_email
         msg['To'] = to_email
         msg['Subject'] = "Security Alert: New Login to Nexus Chat"
+
         html = f"""
         <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #EF4444; border-radius: 10px;">
             <h2 style="color: #EF4444; text-align: center;">New Login Detected</h2>
@@ -271,14 +272,15 @@ def send_login_alert(to_email, ip_address, device_info):
         </div>
         """
         msg.attach(MIMEText(html, 'html'))
-        with smtplib.SMTP('smtp.gmail.com', 587, timeout=15) as server:
+
+        with smtplib.SMTP('smtp-relay.brevo.com', 587, timeout=15) as server:
             server.ehlo()
             server.starttls()
             server.ehlo()
             server.login(sender_email, sender_password)
             server.send_message(msg)
     except Exception as e:
-        print(f"Login alert email error: {e}")
+        print(f"Brevo Login alert email error: {e}")
 
 def allowed_file(filename):
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'mp4', 'webm', 'mp3', 'wav', 'ogg', 'pdf', 'doc', 'docx', 'txt', 'zip'}
