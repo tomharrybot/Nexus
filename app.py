@@ -22,14 +22,6 @@ import tempfile
 from functools import wraps
 from pymongo import MongoClient, errors as mongo_errors
 
-
-# 👇 Ye block bhi add karein
-def after_request(response):
-    response.headers['Access-Control-Allow-Origin'] = '*'
-    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
-    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE,OPTIONS'
-    return response
-
 # Pakistan Standard Time (UTC+5) - All timestamps use UTC with Z suffix
 # so browsers auto-convert to local (PKT) time correctly
 def now_utc():
