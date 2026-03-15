@@ -216,71 +216,81 @@ def generate_otp():
 
 def send_email_otp(to_email, otp):
     try:
-        sender_email = os.environ.get("MAIL_USERNAME")
-        sender_password = os.environ.get("MAIL_PASSWORD")
+        api_key = os.environ.get(
+            "BREVO_API_KEY")
+        sender_email = os.environ.get("MAIL_SENDER")
 
-        msg = MIMEMultipart()
-        msg['From'] = sender_email
-        msg['To'] = to_email
-        msg['Subject'] = "Nexus Chat Verification Code"
-
-        html = f"""
-        <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #7C3AED; border-radius: 10px;">
-            <h2 style="color: #7C3AED; text-align: center;">Nexus Chat Verification</h2>
-            <p style="color: #333;">Your verification code is:</p>
-            <div style="text-align: center; margin: 30px 0;">
-                <span style="font-size: 32px; font-weight: bold; letter-spacing: 10px; color: #7C3AED; padding: 15px 25px; background: #f0f0f0; border-radius: 8px;">{otp}</span>
+        url = "https://api.brevo.com/v3/smtp/email"
+        headers = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "api-key": api_key
+        }
+        payload = {
+            "sender": {"email": sender_email},
+            "to": [{"email": to_email}],
+            "subject": "Nexus Chat Verification Code",
+            "htmlContent": f"""
+            <div style="font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; border: 1px solid #7C3AED; border-radius: 10px;">
+                <h2 style="color: #7C3AED; text-align: center;">Nexus Chat Verification</h2>
+                <p style="color: #333;">Your verification code is:</p>
+                <div style="text-align: center; margin: 30px 0;">
+                    <span style="font-size: 32px; font-weight: bold; letter-spacing: 10px; color: #7C3AED; padding: 15px 25px; background: #f0f0f0; border-radius: 8px;">{otp}</span>
+                </div>
+                <p style="color: #666;">Use this code to verify your account. This code will expire in 10 minutes.</p>
+                <hr style="border: 1px solid #eee;">
+                <p style="color: #999; font-size: 12px; text-align: center;">If you didn't request this code, please ignore this email.</p>
             </div>
-            <p style="color: #666;">Use this code to verify your account. This code will expire in 10 minutes.</p>
-            <hr style="border: 1px solid #eee;">
-            <p style="color: #999; font-size: 12px; text-align: center;">If you didn't request this code, please ignore this email.</p>
-        </div>
-        """
-        msg.attach(MIMEText(html, 'html'))
+            """
+        }
 
-        with smtplib.SMTP('smtp-relay.brevo.com', 587, timeout=15) as server:
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
-            server.login(sender_email, sender_password)
-            server.send_message(msg)
+        response = requests.post(url, json=payload, headers=headers, timeout=15)
+        response.raise_for_status()  # Raise exception if API fails
 
         print(f"OTP email sent successfully to {to_email}")
         return True
+
     except Exception as e:
         print(f"Brevo Email error: {e}")
         return False
 
+# ----------------- Send Login Alert via Brevo API -----------------
 def send_login_alert(to_email, ip_address, device_info):
     try:
-        sender_email = os.environ.get("MAIL_USERNAME")
-        sender_password = os.environ.get("MAIL_PASSWORD")
+        api_key = os.environ.get(
+            "BREVO_API_KEY")
+        sender_email = os.environ.get("MAIL_SENDER")
+        url = "https://api.brevo.com/v3/smtp/email"
+        headers = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "api-key": api_key
+        }
+        payload = {
+            "sender": {"email": sender_email},
+            "to": [{"email": to_email}],
+            "subject": "Security Alert: New Login to Nexus Chat",
+            "htmlContent": f"""
+            <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #EF4444; border-radius: 10px;">
+                <h2 style="color: #EF4444; text-align: center;">New Login Detected</h2>
+                <p>Welcome back to Nexus Chat! We noticed a new login to your account.</p>
+                <p><strong>Device/Browser:</strong> {device_info}</p>
+                <p><strong>Location/IP:</strong> {ip_address}</p>
+                <p><strong>Time:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+                <p>If this was you, you can ignore this email. If not, please secure your account immediately.</p>
+            </div>
+            """
+        }
 
-        msg = MIMEMultipart()
-        msg['From'] = sender_email
-        msg['To'] = to_email
-        msg['Subject'] = "Security Alert: New Login to Nexus Chat"
+        response = requests.post(url, json=payload, headers=headers, timeout=15)
+        response.raise_for_status()
 
-        html = f"""
-        <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #EF4444; border-radius: 10px;">
-            <h2 style="color: #EF4444; text-align: center;">New Login Detected</h2>
-            <p>Welcome back to Nexus Chat! We noticed a new login to your account.</p>
-            <p><strong>Device/Browser:</strong> {device_info}</p>
-            <p><strong>Location/IP:</strong> {ip_address}</p>
-            <p><strong>Time:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
-            <p>If this was you, you can ignore this email. If not, please secure your account immediately.</p>
-        </div>
-        """
-        msg.attach(MIMEText(html, 'html'))
+        print(f"Login alert email sent successfully to {to_email}")
+        return True
 
-        with smtplib.SMTP('smtp-relay.brevo.com', 587, timeout=15) as server:
-            server.ehlo()
-            server.starttls()
-            server.ehlo()
-            server.login(sender_email, sender_password)
-            server.send_message(msg)
     except Exception as e:
         print(f"Brevo Login alert email error: {e}")
+        return False
 
 def allowed_file(filename):
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'mp4', 'webm', 'mp3', 'wav', 'ogg', 'pdf', 'doc', 'docx', 'txt', 'zip'}
