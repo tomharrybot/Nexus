@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nexus Chat - Premium Messaging</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Rajdhani:wght@600;700&family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Gulzar&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emoji-mart@latest/css/emoji-mart.css">
+
+    <link rel="stylesheet" href="static/css/auth.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    <link rel="stylesheet" href="static/css/modal.css">
+    <link rel="stylesheet" href="static/css/chat.css">
+    <link rel="stylesheet" href="static/css/voice.css">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237C3AED'%3E%3Cpath d='M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347'/%3E%3C/svg%3E">
+</head>
+<body>
+    <div id="security-alert-banner" style="display: none; position: fixed; top: 0; left: 0; width: 100%; background: #EF4444; color: white; text-align: center; padding: 10px; z-index: 9999;">
+        <i class="fas fa-shield-alt"></i> New login detected from another device or location. <a href="#" id="review-login-btn" style="color: white; text-decoration: underline;">Review</a>
+    </div>
+
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-logo">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.016a9.07 9.07 0 0 1-4.069-1.011l-.147-.074-3.135.823.838-3.066-.088-.144a9.053 9.053 0 0 1-1.354-4.785C3.51 7.175 7.175 3.51 11.99 3.51c2.408 0 4.56.94 6.211 2.589 1.652 1.652 2.591 3.802 2.591 6.21 0 4.817-3.666 8.48-8.48 8.476M12 0C5.373 0 0 5.373 0 12c0 2.396.828 4.629 2.227 6.389L.761 24l5.647-1.579A11.99 11.99 0 0 0 12 24c6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12" fill="url(#logoGradient)"/>
+                </svg>
+            </div>
+            <h1 class="splash-title" style="font-family:'Orbitron','Rajdhani',sans-serif;letter-spacing:0.15em;">NEXUS</h1>
+            <p class="splash-subtitle">CONNECT • CHAT • CONQUER</p>
+            <div class="splash-loader">
+                <span class="splash-dot"></span>
+                <span class="splash-dot"></span>
+                <span class="splash-dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="auth-screen" class="screen active">
+        <div class="auth-container">
+            <div class="auth-brand-panel">
+                <div class="brand-orb brand-orb-1"></div>
+                <div class="brand-orb brand-orb-2"></div>
+                <div class="brand-orb brand-orb-3"></div>
+                <div class="brand-content">
+                    <div class="brand-logo-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="brand-logo-svg">
+                            <defs>
+                                <linearGradient id="brandLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.016a9.07 9.07 0 0 1-4.069-1.011l-.147-.074-3.135.823.838-3.066-.088-.144a9.053 9.053 0 0 1-1.354-4.785C3.51 7.175 7.175 3.51 11.99 3.51c2.408 0 4.56.94 6.211 2.589 1.652 1.652 2.591 3.802 2.591 6.21 0 4.817-3.666 8.48-8.48 8.476M12 0C5.373 0 0 5.373 0 12c0 2.396.828 4.629 2.227 6.389L.761 24l5.647-1.579A11.99 11.99 0 0 0 12 24c6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12" fill="url(#brandLogoGrad)"/>
+                        </svg>
+                    </div>
+                    <h1 class="brand-title">NEXUS</h1>
+                    <p class="brand-tagline">Connect. Chat. Conquer.</p>
+                    <div class="brand-divider"></div>
+                    <ul class="brand-features">
+                        <li class="brand-feature-item">
+                            <span class="brand-feature-icon"><i class="fas fa-shield-alt"></i></span>
+                            <span>End-to-end encrypted messaging</span>
+                        </li>
+                        <li class="brand-feature-item">
+                            <span class="brand-feature-icon"><i class="fas fa-bolt"></i></span>
+                            <span>Real-time instant messaging</span>
+                        </li>
+                        <li class="brand-feature-item">
+                            <span class="brand-feature-icon"><i class="fas fa-microphone"></i></span>
+                            <span>Voice messages with waveform</span>
+                        </li>
+                        <li class="brand-feature-item">
+                            <span class="brand-feature-icon"><i class="fas fa-users"></i></span>
+                            <span>Groups & broadcast lists</span>
+                        </li>
+                        <li class="brand-feature-item">
+                            <span class="brand-feature-icon"><i class="fas fa-eye"></i></span>
+                            <span>Live online &amp; last seen status</span>
+                        </li>
+                    </ul>
+                    <p class="brand-footer-text">Trusted by thousands worldwide</p>
+                </div>
+            </div>
+
+            <div class="auth-form-panel">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <div class="nexus-logo">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="logoGradientSmall" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.016a9.07 9.07 0 0 1-4.069-1.011l-.147-.074-3.135.823.838-3.066-.088-.144a9.053 9.053 0 0 1-1.354-4.785C3.51 7.175 7.175 3.51 11.99 3.51c2.408 0 4.56.94 6.211 2.589 1.652 1.652 2.591 3.802 2.591 6.21 0 4.817-3.666 8.48-8.48 8.476M12 0C5.373 0 0 5.373 0 12c0 2.396.828 4.629 2.227 6.389L.761 24l5.647-1.579A11.99 11.99 0 0 0 12 24c6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12" fill="url(#logoGradientSmall)"/>
+                            </svg>
+                        </div>
+                        <h1 class="welcome-title">Welcome back</h1>
+                        <p class="login-prompt">Sign in to your account to continue</p>
+                    </div>
+
+                    <div class="terms-container" id="terms-container" style="display: none;">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms-checkbox">
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <div class="auth-form">
+                        <div class="input-group">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="email-input" placeholder="Email address" class="nexus-input">
+                            <span class="input-line"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="username-input" placeholder="Your name (optional)" class="nexus-input">
+                            <span class="input-line"></span>
+                        </div>
+
+                        <button id="agree-continue-btn" class="nexus-btn" style="display: none;">
+                            <span id="agree-continue-text">Agree &amp; Continue</span>
+                            <div id="agree-continue-spinner" class="btn-spinner" style="display: none;"></div>
+                        </button>
+
+                        <button id="send-otp-btn" class="nexus-btn">
+                            <span id="send-otp-text">Send Verification Code</span>
+                            <div id="send-otp-spinner" class="btn-spinner" style="display: none;"></div>
+                        </button>
+
+                        <div id="otp-container" class="otp-container" style="display: none;">
+                            <p class="otp-instruction">Enter the 6-digit code sent to your email</p>
+                            <div class="otp-inputs">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-digit" placeholder="0">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-digit" placeholder="0">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-digit" placeholder="0">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-digit" placeholder="0">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-digit" placeholder="0">
+                                <input type="text" inputmode="numeric" maxlength="1" class="otp-digit" placeholder="0">
+                            </div>
+                        </div>
+
+                        <button id="verify-otp-btn" class="nexus-btn" style="display: none;">
+                            <span id="verify-otp-text">Verify &amp; Continue</span>
+                            <div id="verify-otp-spinner" class="btn-spinner" style="display: none;"></div>
+                        </button>
+                    </div>
+
+                    <div class="loading-steps" id="loading-steps" style="display: none;">
+                        <div class="loading-step">
+                            <i class="fas fa-check-circle step-completed"></i>
+                            <span>Initializing your account...</span>
+                        </div>
+                        <div class="loading-step">
+                            <i class="fas fa-spinner fa-spin step-loading"></i>
+                            <span>Setting up your profile...</span>
+                        </div>
+                        <div class="loading-step">
+                            <i class="fas fa-circle step-pending"></i>
+                            <span>Preparing your chat environment...</span>
+                        </div>
+                    </div>
+
+                    <div id="auth-message" class="auth-message" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-screen" class="screen">
+        <div class="app-container">
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <div class="user-profile" id="user-profile-btn">
+                        <img id="user-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237C3AED'%3E%3Cpath d='M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-6.627 0-12 5.373-12 12h24c0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" class="user-avatar" alt="Profile">
+                        <span id="user-status" class="status-indicator online"></span>
+                    </div>
+                    <div class="header-title" style="text-align: center;">
+                        <h2 style="font-weight: 900; font-family: 'Orbitron', 'Rajdhani', sans-serif; letter-spacing: 0.12em; background: var(--nexus-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">NEXUS</h2>
+                    </div>
+                    <div class="header-actions">
+                        <i class="fas fa-plus-circle" title="New chat" id="new-chat-btn"></i>
+                        <i class="fas fa-qrcode" title="QR Code" id="qr-btn"></i>
+                        <i class="fas fa-bars" title="Menu" id="menu-btn"></i>
+                    </div>
+                </div>
+
+                <div class="selection-header" id="selection-header" style="display: none;">
+                    <div class="selection-back" id="selection-back">
+                        <i class="fas fa-arrow-left"></i>
+                    </div>
+                    <div class="selection-count" id="selection-count">
+                        0 selected
+                    </div>
+                    <div class="selection-actions">
+                        <i class="fas fa-check-double" title="Mark as read" id="selection-read"></i>
+                        <i class="fas fa-archive" title="Archive" id="selection-archive"></i>
+                        <i class="fas fa-trash" title="Delete" id="selection-delete"></i>
+                        <i class="fas fa-volume-mute" title="Mute" id="selection-mute"></i>
+                        <i class="fas fa-ban" title="Block" id="selection-block"></i>
+                    </div>
+                </div>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search or start new chat" id="search-contacts">
+                        <i class="fas fa-sliders-h filter-icon"></i>
+                    </div>
+                </div>
+
+                <div class="chat-tabs">
+                    <div class="chat-tab active" data-tab="chats">
+                        <i class="fas fa-comment"></i>
+                        <span>Chats</span>
+                    </div>
+                    <div class="chat-tab" data-tab="status">
+                        <i class="fas fa-circle-notch"></i>
+                        <span>Status</span>
+                    </div>
+                    <div class="chat-tab" data-tab="groups">
+                        <i class="fas fa-users"></i>
+                        <span>Groups</span>
+                    </div>
+                    <div class="chat-tab" data-tab="broadcasts">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Broadcasts</span>
+                    </div>
+                </div>
+
+                <div class="chat-list" id="chat-list">
+                    <div class="loading-chats">
+                        <div class="nexus-spinner"></div>
+                        <p>Loading chats...</p>
+                    </div>
+                </div>
+
+                <div class="groups-list" id="groups-list" style="display: none;">
+                    </div>
+
+                <div class="broadcasts-list" id="broadcasts-list" style="display: none;">
+                    </div>
+
+                <div class="status-list" id="status-list" style="display: none; padding: 10px; overflow-y: auto; flex: 1;">
+                    <div class="my-status" id="add-new-status" style="display: flex; align-items: center; gap: 15px; padding: 10px; cursor: pointer; border-bottom: 1px solid rgba(139,92,246,0.1);">
+                        <div style="position: relative;">
+                            <img id="my-status-avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237C3AED'%3E%3Cpath d='M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-6.627 0-12 5.373-12 12h24c0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                            <i class="fas fa-plus-circle" style="position: absolute; bottom: 0; right: 0; color: #10B981; background: var(--nexus-bg-card); border-radius: 50%; border: 2px solid var(--nexus-bg-card); font-size: 1.1rem;"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 0.95rem;">My Status</div>
+                            <div style="font-size: 0.8rem; color: var(--nexus-text-secondary);">Tap to add status update</div>
+                        </div>
+                    </div>
+                    <div id="recent-updates-header" style="padding: 15px 10px 5px; font-size: 0.85rem; font-weight: 600; color: var(--nexus-text-muted); text-transform: uppercase;">Recent updates</div>
+                    <div id="friends-status-list">
+                        </div>
+                </div>
+
+            </div>
+
+            <div class="chat-area" id="chat-area">
+                <div class="chat-header">
+                    <div class="chat-user-info">
+                        <div class="back-button" id="back-button">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <div class="chat-avatar-container">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237C3AED'%3E%3Cpath d='M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-6.627 0-12 5.373-12 12h24c0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" class="current-chat-avatar" id="current-chat-avatar" alt="Contact">
+                            <span class="status-indicator online" id="chat-status-indicator"></span>
+                        </div>
+                        <div class="current-chat-info">
+                            <div class="current-chat-name" id="current-chat-name">Select a chat</div>
+                            <div class="current-chat-status" id="current-chat-status">Tap to start messaging</div>
+                        </div>
+                    </div>
+                    <div class="chat-header-actions">
+                        <i class="fas fa-phone-alt" title="Voice call" id="voice-call-btn"></i>
+                        <i class="fas fa-video" title="Video call" id="video-call-btn"></i>
+                        <i class="fas fa-search" title="Search" id="search-chat-btn"></i>
+                        <i class="fas fa-ellipsis-v" title="Menu" id="chat-menu-btn"></i>
+                    </div>
+                </div>
+
+                <div class="messages-container" id="messages-container">
+                    <div class="welcome-message">
+                        <div class="welcome-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Welcome to Nexus Chat!</h3>
+                        <p>Select a contact to start messaging</p>
+                    </div>
+                </div>
+
+                <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                    <div class="typing-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span id="typing-text">Someone is typing...</span>
+                </div>
+
+                <div class="message-input-container">
+                    <div class="input-actions">
+                        <i class="fas fa-plus-circle" id="attach-menu-btn"></i>
+                        <i class="far fa-smile" id="emoji-picker-btn"></i>
+                    </div>
+
+                    <input type="file" id="file-upload" style="display: none;" multiple accept="image/*, video/*, audio/*, .pdf, .doc, .docx, .xls, .xlsx, .txt">
+
+                    <input type="text" class="message-input" placeholder="Type a message" id="message-input" autocomplete="off" style="font-family: 'Plus Jakarta Sans', 'Noto Nastaliq Urdu', sans-serif;">
+
+                    <div class="send-button" id="send-message-btn" style="display:none;">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+
+                    <div class="voice-record-circle" id="voice-record-btn">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+
+                    <div class="voice-recording" id="voice-recording" style="display: none;">
+                        <span class="voice-rec-dot"></span>
+                        <div class="voice-timer" id="voice-timer">0:00</div>
+                        <div class="voice-wave" id="voice-wave"></div>
+                        <div class="voice-actions">
+                            <button class="voice-action-btn voice-cancel-btn" id="cancel-voice" title="Cancel">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                            <button class="voice-action-btn voice-send-btn" id="send-voice" title="Send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="attachment-menu" id="attachment-menu" style="display: none;">
+                    <div class="attachment-item" data-type="camera">
+                        <i class="fas fa-camera"></i>
+                        <span>Camera</span>
+                    </div>
+                    <div class="attachment-item" data-type="image">
+                        <i class="fas fa-image"></i>
+                        <span>Gallery</span>
+                    </div>
+                    <div class="attachment-item" data-type="document">
+                        <i class="fas fa-file"></i>
+                        <span>Document</span>
+                    </div>
+                    <div class="attachment-item" data-type="contact">
+                        <i class="fas fa-user"></i>
+                        <span>Contact</span>
+                    </div>
+                    <div class="attachment-item" data-type="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Location</span>
+                    </div>
+                </div>
+
+                <div class="emoji-picker-container" id="emoji-picker" style="display: none;"></div>
+            </div>
+
+            <div class="empty-chat" id="empty-chat">
+                <div class="empty-chat-content">
+                    <div class="empty-chat-icon">
+                        <svg viewBox="0 0 24 24" width="120" height="120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="emptyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#10B981;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.016a9.07 9.07 0 0 1-4.069-1.011l-.147-.074-3.135.823.838-3.066-.088-.144a9.053 9.053 0 0 1-1.354-4.785C3.51 7.175 7.175 3.51 11.99 3.51c2.408 0 4.56.94 6.211 2.589 1.652 1.652 2.591 3.802 2.591 6.21 0 4.817-3.666 8.48-8.48 8.476M12 0C5.373 0 0 5.373 0 12c0 2.396.828 4.629 2.227 6.389L.761 24l5.647-1.579A11.99 11.99 0 0 0 12 24c6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12" fill="url(#emptyGradient)"/>
+                        </svg>
+                    </div>
+                    <h2>Nexus Chat</h2>
+                    <p>Send private messages, share media, and connect with friends</p>
+                    <button class="nexus-btn" id="start-new-chat">
+                        <i class="fas fa-plus"></i>
+                        Start New Chat
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Profile</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="avatar-upload">
+                    <div class="avatar-preview-container">
+                        <img id="profile-avatar-preview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237C3AED'%3E%3Cpath d='M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-6.627 0-12 5.373-12 12h24c0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" class="avatar-preview" alt="Profile">
+                        <div class="avatar-edit-overlay" id="change-avatar-btn">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="profile-form">
+                    <div class="input-group">
+                        <i class="fas fa-user input-icon"></i>
+                        <input type="text" id="profile-name" placeholder="Your name" class="nexus-input">
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-info-circle input-icon"></i>
+                        <textarea id="profile-about" placeholder="About you" class="nexus-input" rows="3"></textarea>
+                    </div>
+                </div>
+                <button id="save-profile-btn" class="nexus-btn">
+                    <span id="save-profile-text">Save Changes</span>
+                    <div id="save-profile-spinner" class="btn-spinner" style="display: none;"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="profile-view-modal" class="modal">
+        <div class="modal-content" style="max-width:400px;overflow:hidden;padding:0;">
+            <div class="profile-view-header-bg">
+                <span class="close" style="position:absolute;top:12px;right:16px;color:rgba(255,255,255,0.8);font-size:1.5rem;cursor:pointer;z-index:2;">&times;</span>
+            </div>
+            <div class="profile-view-avatar-wrap">
+                <div style="position:relative;display:inline-block;">
+                    <img id="view-profile-avatar" src="" style="width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--nexus-bg-primary);box-shadow:0 4px 20px rgba(124,58,237,0.3);" alt="Profile">
+                    <span id="view-profile-status" class="status-indicator online" style="position:absolute;bottom:4px;right:4px;width:16px;height:16px;border:2px solid var(--nexus-bg-primary);"></span>
+                </div>
+            </div>
+            <div class="profile-view-body">
+                <h3 id="view-profile-name" class="profile-view-name"></h3>
+                <div id="view-profile-online-badge" class="profile-view-status-text">Online</div>
+                <p id="view-profile-about" class="profile-view-about"></p>
+                <p id="view-profile-email" class="profile-view-email"></p>
+                <p id="view-profile-lastseen" class="profile-view-email" style="color:var(--nexus-text-muted);font-size:0.8rem;"></p>
+                <div class="profile-view-actions">
+                    <button class="nexus-btn secondary" id="message-profile-btn">
+                        <i class="fas fa-comment"></i> Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="add-contact-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Contact</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input type="email" id="contact-email-input" placeholder="Contact's email address" class="nexus-input">
+                </div>
+                <div id="contact-search-results" class="contact-search-results"></div>
+                <button id="add-contact-btn" class="nexus-btn">
+                    <span id="add-contact-text">Add Contact</span>
+                    <div id="add-contact-spinner" class="btn-spinner" style="display: none;"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="create-group-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create New Group</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="group-avatar-upload">
+                    <div class="avatar-preview-container">
+                        <img id="group-avatar-preview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237C3AED'%3E%3Cpath d='M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E" class="avatar-preview" alt="Group">
+                        <div class="avatar-edit-overlay" id="change-group-avatar-btn">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                    </div>
+                    <input type="file" id="group-avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="group-form">
+                    <div class="input-group">
+                        <i class="fas fa-users input-icon"></i>
+                        <input type="text" id="group-name" placeholder="Group name" class="nexus-input">
+                    </div>
+
+                    <div class="members-search">
+                        <div class="input-group">
+                            <i class="fas fa-search input-icon"></i>
+                            <input type="text" id="group-members-search" placeholder="Search contacts..." class="nexus-input">
+                        </div>
+                    </div>
+
+                    <div class="members-list" id="members-list">
+                        </div>
+
+                    <div class="selected-members" id="selected-members">
+                        </div>
+                </div>
+                <button id="create-group-btn" class="nexus-btn" disabled>Create Group</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="create-broadcast-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Broadcast List</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <i class="fas fa-bullhorn input-icon"></i>
+                    <input type="text" id="broadcast-name" placeholder="List name" class="nexus-input">
+                </div>
+
+                <div class="members-search">
+                    <div class="input-group">
+                        <i class="fas fa-search input-icon"></i>
+                        <input type="text" id="broadcast-members-search" placeholder="Search contacts..." class="nexus-input">
+                    </div>
+                </div>
+
+                <div class="members-list" id="broadcast-members-list">
+                    </div>
+
+                <div class="selected-members" id="broadcast-selected-members">
+                    </div>
+
+                <button id="create-broadcast-btn" class="nexus-btn" disabled>Create Broadcast</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="chat-menu-modal" class="modal">
+        <div class="modal-content menu-modal">
+            <div class="menu-item" data-action="view-profile">
+                <i class="fas fa-user"></i>
+                <span>View Profile</span>
+            </div>
+            <div class="menu-item" data-action="search">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </div>
+            <div class="menu-item" data-action="mute">
+                <i class="fas fa-volume-mute"></i>
+                <span>Mute Notifications</span>
+            </div>
+            <div class="menu-item" data-action="block">
+                <i class="fas fa-ban"></i>
+                <span>Block</span>
+            </div>
+            <div class="menu-item" data-action="clear">
+                <i class="fas fa-eraser"></i>
+                <span>Clear Chat</span>
+            </div>
+            <div class="menu-item" data-action="export">
+                <i class="fas fa-download"></i>
+                <span>Export Chat</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu-modal" class="modal">
+        <div class="modal-content menu-modal">
+            <div class="menu-item" id="menu-profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </div>
+            <div class="menu-item" id="menu-create-group">
+                <i class="fas fa-users"></i>
+                <span>New Group</span>
+            </div>
+            <div class="menu-item" id="menu-create-broadcast">
+                <i class="fas fa-bullhorn"></i>
+                <span>New Broadcast</span>
+            </div>
+            <div class="menu-item" id="menu-blocked">
+                <i class="fas fa-user-slash"></i>
+                <span>Blocked Users</span>
+            </div>
+            <div class="menu-item" id="menu-wallpapers">
+                <i class="fas fa-image"></i>
+                <span>Chat Wallpapers</span>
+            </div>
+            <div class="menu-item" id="menu-notifications">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+            </div>
+            <div class="menu-item" id="menu-themes">
+                <i class="fas fa-palette"></i>
+                <span>Theme</span>
+            </div>
+            <div class="menu-item" id="menu-settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </div>
+            <div class="menu-item" id="menu-help">
+                <i class="fas fa-question-circle"></i>
+                <span>Help & Support</span>
+            </div>
+            <div class="menu-item" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="theme-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Select Theme</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="theme-options">
+                    <div class="theme-option" data-theme="dark">
+                        <div class="theme-preview" style="background:linear-gradient(135deg,#080C18,#1A2035);"></div>
+                        <span>Dark</span>
+                    </div>
+                    <div class="theme-option" data-theme="light">
+                        <div class="theme-preview" style="background:linear-gradient(135deg,#F0F2FF,#FFFFFF);"></div>
+                        <span>Light</span>
+                    </div>
+                    <div class="theme-option" data-theme="midnight">
+                        <div class="theme-preview" style="background:linear-gradient(135deg,#0D0D0D,#1A0A2E);"></div>
+                        <span>Midnight</span>
+                    </div>
+                    <div class="theme-option" data-theme="ocean">
+                        <div class="theme-preview" style="background:linear-gradient(135deg,#0A1628,#0C2340);"></div>
+                        <span>Ocean</span>
+                    </div>
+                    <div class="theme-option" data-theme="forest">
+                        <div class="theme-preview" style="background:linear-gradient(135deg,#0A1A0F,#122416);"></div>
+                        <span>Forest</span>
+                    </div>
+                    <div class="theme-option" data-theme="rose">
+                        <div class="theme-preview" style="background:linear-gradient(135deg,#1A0A12,#2D1020);"></div>
+                        <span>Rose</span>
+                    </div>
+                    <div class="theme-option" data-theme="system">
+                        <div class="theme-preview" style="background:linear-gradient(135deg,#e0e0e0,#f5f5f5,#1a1a2e,#0d0d1a);"></div>
+                        <span>System</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="notifications-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Notification Settings</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="notification-option">
+                    <label class="switch">
+                        <input type="checkbox" id="notifications-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span>Enable Notifications</span>
+                </div>
+                <div class="notification-option">
+                    <label class="switch">
+                        <input type="checkbox" id="sound-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span>Message Sound</span>
+                </div>
+                <div class="notification-option">
+                    <label class="switch">
+                        <input type="checkbox" id="vibration-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span>Vibration</span>
+                </div>
+                <div class="notification-option">
+                    <label class="switch">
+                        <input type="checkbox" id="preview-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <span>Message Preview</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Settings</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body settings-body">
+                <div class="settings-section">
+                    <h3>Privacy & Security</h3>
+                    <div class="settings-item">
+                        <span>Last Seen</span>
+                        <select class="settings-select" id="last-seen-setting">
+                            <option value="everyone">Everyone</option>
+                            <option value="contacts">My Contacts</option>
+                            <option value="nobody">Nobody</option>
+                        </select>
+                    </div>
+                    <div class="settings-item">
+                        <span>Profile Photo</span>
+                        <select class="settings-select" id="profile-photo-setting">
+                            <option value="everyone">Everyone</option>
+                            <option value="contacts">My Contacts</option>
+                            <option value="nobody">Nobody</option>
+                        </select>
+                    </div>
+                    <div class="settings-item">
+                        <span>Read Receipts</span>
+                        <label class="switch">
+                            <input type="checkbox" id="read-receipts-toggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Storage</h3>
+                    <div class="settings-item">
+                        <span>Media Auto-Download</span>
+                        <select class="settings-select" id="auto-download-setting">
+                            <option value="wifi">Wi-Fi Only</option>
+                            <option value="always">Always</option>
+                            <option value="never">Never</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Chat Backup</h3>
+                    <div class="settings-item">
+                        <span>Auto Backup</span>
+                        <label class="switch">
+                            <input type="checkbox" id="backup-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <button class="nexus-btn secondary" id="backup-now-btn">
+                        <i class="fas fa-database"></i>
+                        Backup Now
+                    </button>
+                </div>
+
+                <div class="settings-section">
+                    <h3>Font / فونٹ</h3>
+                    <div class="settings-item">
+                        <span>English Font</span>
+                        <select class="settings-select" id="english-font-setting">
+                            <option value="Plus Jakarta Sans">Plus Jakarta Sans</option>
+                            <option value="Inter">Inter</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Nunito">Nunito</option>
+                        </select>
+                    </div>
+                    <div class="settings-item">
+                        <span>اردو فونٹ</span>
+                        <select class="settings-select" id="urdu-font-setting">
+                            <option value="Noto Nastaliq Urdu">نوٹو نستعلیق اردو</option>
+                            <option value="Gulzar">گلزار</option>
+                        </select>
+                    </div>
+                    <div class="settings-item">
+                        <span>Apply Font</span>
+                        <button class="nexus-btn secondary" id="apply-font-btn" style="padding:6px 14px;width:auto;font-size:0.82rem;">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>QR Code</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body qr-body">
+                <div class="qr-code" id="qr-code">
+                    </div>
+                <p>Scan to add contact</p>
+                <button class="nexus-btn secondary" id="download-qr-btn">
+                    <i class="fas fa-download"></i>
+                    Download
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="media-viewer-modal" class="modal media-viewer">
+        <div class="media-viewer-content">
+            <span class="close-media">&times;</span>
+            <div class="media-container" id="media-container"></div>
+            <div class="media-info" id="media-info"></div>
+            <div class="media-actions">
+                <button class="nexus-btn secondary" id="download-media-btn">
+                    <i class="fas fa-download"></i>
+                </button>
+                <button class="nexus-btn secondary" id="share-media-btn">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="search-chat-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Search in Chat</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <i class="fas fa-search input-icon"></i>
+                    <input type="text" id="chat-search-input" placeholder="Search messages..." class="nexus-input">
+                </div>
+                <div class="search-results" id="search-results"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blocked-users-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Blocked Users</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body" id="blocked-users-list">
+                <div class="no-results" style="text-align:center; padding: 20px; color: var(--nexus-text-muted);">
+                    No blocked users found.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="logout-confirm-modal" class="modal">
+        <div class="modal-content" style="max-width: 340px; text-align: center;">
+            <div class="modal-body" style="padding: 30px 24px;">
+                <i class="fas fa-sign-out-alt" style="font-size: 3.5rem; color: #EF4444; margin-bottom: 20px;"></i>
+                <h3 style="margin-bottom: 12px; font-weight: 700; color: var(--nexus-text-primary);">Log Out</h3>
+                <p style="color: var(--nexus-text-secondary); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.5;">Are you sure you want to log out from Nexus Chat? You will need to verify your email again to log back in.</p>
+                <div style="display: flex; gap: 12px;">
+                    <button class="nexus-btn secondary close" style="flex: 1;">Cancel</button>
+                    <button class="nexus-btn" id="confirm-logout-btn" style="flex: 1; background: #EF4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wallpapers-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Chat Wallpapers</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body" style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;" id="wallpaper-options">
+                <div class="wallpaper-option" data-bg="default" style="width: 85px; height: 130px; background: var(--nexus-bg-primary); border: 2px solid var(--nexus-accent); border-radius: 12px; cursor: pointer; position: relative; display:flex; align-items:flex-end; justify-content:center; padding-bottom:6px;">
+                    <span style="font-size:0.68rem; color:var(--nexus-text-secondary);">Default</span>
+                </div>
+                <div class="wallpaper-option" data-bg="linear-gradient(135deg,#1a0533,#0d1b4b)" style="width: 85px; height: 130px; background: linear-gradient(135deg,#1a0533,#0d1b4b); border-radius: 12px; border: 2px solid transparent; cursor: pointer;"></div>
+                <div class="wallpaper-option" data-bg="linear-gradient(135deg,#0a2818,#163d26)" style="width: 85px; height: 130px; background: linear-gradient(135deg,#0a2818,#163d26); border-radius: 12px; border: 2px solid transparent; cursor: pointer;"></div>
+                <div class="wallpaper-option" data-bg="linear-gradient(135deg,#1a0a1a,#2d0a2d)" style="width: 85px; height: 130px; background: linear-gradient(135deg,#1a0a1a,#2d0a2d); border-radius: 12px; border: 2px solid transparent; cursor: pointer;"></div>
+                <div class="wallpaper-option" data-bg="linear-gradient(135deg,#0a0a1a,#1a0a2e,#0a1a2e)" style="width: 85px; height: 130px; background: linear-gradient(135deg,#0a0a1a,#1a0a2e,#0a1a2e); border-radius: 12px; border: 2px solid transparent; cursor: pointer;"></div>
+                <div class="wallpaper-option" data-bg="linear-gradient(160deg,#1a1a2e,#16213e,#0f3460)" style="width: 85px; height: 130px; background: linear-gradient(160deg,#1a1a2e,#16213e,#0f3460); border-radius: 12px; border: 2px solid transparent; cursor: pointer;"></div>
+                <div class="wallpaper-option" data-bg="url('https://www.transparenttextures.com/patterns/cubes.png')" style="width: 85px; height: 130px; background: #1a2035 url('https://www.transparenttextures.com/patterns/cubes.png'); border-radius: 12px; border: 2px solid transparent; cursor: pointer;"></div>
+                <div class="wallpaper-option" data-bg="url('https://www.transparenttextures.com/patterns/stardust.png')" style="width: 85px; height: 130px; background: #0f172a url('https://www.transparenttextures.com/patterns/stardust.png'); border-radius: 12px; border: 2px solid transparent; cursor: pointer;"></div>
+                <div style="width: 85px; height: 130px; border: 2px dashed rgba(139,92,246,0.5); border-radius: 12px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-direction: column; gap: 5px; color: var(--nexus-text-secondary);" id="upload-wallpaper-btn">
+                    <i class="fas fa-plus"></i>
+                    <span style="font-size: 0.7rem;">Custom</span>
+                </div>
+                <input type="file" id="custom-wallpaper-upload" accept="image/*" style="display: none;">
+            </div>
+        </div>
+    </div>
+
+    <div id="status-upload-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Status</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; gap: 15px; margin-bottom: 20px; justify-content: center;">
+                    <div id="text-status-btn" style="width: 80px; height: 80px; border-radius: 50%; background: rgba(139,92,246,0.1); color: var(--nexus-accent); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; border: 1px solid rgba(139,92,246,0.3); flex-direction:column; gap:4px;" title="Text Status"><i class="fas fa-font"></i><span style="font-size:0.6rem;">Text</span></div>
+                    <div id="camera-status-btn" style="width: 80px; height: 80px; border-radius: 50%; background: rgba(16,185,129,0.1); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; border: 1px solid rgba(16,185,129,0.3); flex-direction:column; gap:4px;" title="Photo Status"><i class="fas fa-camera"></i><span style="font-size:0.6rem;">Photo</span></div>
+                    <div id="video-status-btn" style="width: 80px; height: 80px; border-radius: 50%; background: rgba(59,130,246,0.1); color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; cursor: pointer; border: 1px solid rgba(59,130,246,0.3); flex-direction:column; gap:4px;" title="Video Status"><i class="fas fa-video"></i><span style="font-size:0.6rem;">Video</span></div>
+                </div>
+                <div id="text-status-input" style="display:none;">
+                    <textarea id="status-text-content" class="nexus-input" placeholder="What's on your mind?" rows="3" style="width:100%; resize:none; margin-bottom:10px;"></textarea>
+                    <button id="post-text-status-btn" class="nexus-btn" style="width:100%;">Post Status</button>
+                </div>
+                <div id="media-status-preview" style="display:none; margin-bottom:10px;">
+                    <img id="status-media-preview-img" src="" style="max-width:100%;max-height:200px;border-radius:12px;object-fit:contain;display:none;">
+                    <video id="status-media-preview-vid" style="max-width:100%;max-height:200px;border-radius:12px;display:none;" controls></video>
+                    <input type="text" id="status-caption-input" class="nexus-input" placeholder="Add a caption..." style="margin-top:10px;width:100%;">
+                    <button id="post-media-status-btn" class="nexus-btn" style="width:100%;margin-top:10px;">Post Status</button>
+                </div>
+                <input type="file" id="status-image-upload" accept="image/*" style="display:none;">
+                <input type="file" id="status-video-upload" accept="video/*" style="display:none;">
+                <p style="text-align: center; color: var(--nexus-text-secondary); font-size: 0.82rem; margin-top:10px;">Status disappears after 24 hours</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-question-circle" style="color:var(--nexus-accent);margin-right:8px;"></i>Help &amp; Support</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div style="display:flex; flex-direction:column; gap:14px;">
+                    <div style="background:var(--nexus-bg-card); border-radius:12px; padding:14px; border:1px solid var(--nexus-border);">
+                        <div style="font-weight:600; margin-bottom:6px; color:var(--nexus-accent);"><i class="fas fa-user-plus" style="margin-right:8px;"></i>Adding Contacts</div>
+                        <p style="font-size:0.85rem; color:var(--nexus-text-secondary); line-height:1.6;">Tap the pencil icon or use the + button to add a contact. Enter their full email address to find them.</p>
+                    </div>
+                    <div style="background:var(--nexus-bg-card); border-radius:12px; padding:14px; border:1px solid var(--nexus-border);">
+                        <div style="font-weight:600; margin-bottom:6px; color:var(--nexus-accent);"><i class="fas fa-microphone" style="margin-right:8px;"></i>Voice Messages</div>
+                        <p style="font-size:0.85rem; color:var(--nexus-text-secondary); line-height:1.6;">Tap the microphone button to start recording. Tap again or press Send to send the message.</p>
+                    </div>
+                    <div style="background:var(--nexus-bg-card); border-radius:12px; padding:14px; border:1px solid var(--nexus-border);">
+                        <div style="font-weight:600; margin-bottom:6px; color:var(--nexus-accent);"><i class="fas fa-users" style="margin-right:8px;"></i>Groups &amp; Broadcasts</div>
+                        <p style="font-size:0.85rem; color:var(--nexus-text-secondary); line-height:1.6;">Go to Menu → New Group or New Broadcast to create a group chat or send to multiple contacts.</p>
+                    </div>
+                    <div style="background:var(--nexus-bg-card); border-radius:12px; padding:14px; border:1px solid var(--nexus-border);">
+                        <div style="font-weight:600; margin-bottom:6px; color:var(--nexus-accent);"><i class="fas fa-ban" style="margin-right:8px;"></i>Blocking Users</div>
+                        <p style="font-size:0.85rem; color:var(--nexus-text-secondary); line-height:1.6;">Open a chat, tap ⋮ menu → Block to block a user. Manage blocked users in Menu → Blocked Users.</p>
+                    </div>
+                    <div style="background:var(--nexus-bg-card); border-radius:12px; padding:14px; border:1px solid var(--nexus-border);">
+                        <div style="font-weight:600; margin-bottom:6px; color:var(--nexus-accent);"><i class="fas fa-qrcode" style="margin-right:8px;"></i>QR Code</div>
+                        <p style="font-size:0.85rem; color:var(--nexus-text-secondary); line-height:1.6;">Share your QR code with friends to let them add you instantly. Tap the QR icon in the sidebar header.</p>
+                    </div>
+                    <div style="text-align:center; padding-top:10px;">
+                        <p style="font-size:0.8rem; color:var(--nexus-text-muted);">Nexus Chat v3.0 &nbsp;•&nbsp; Built with ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="status-viewer-modal" class="status-viewer-overlay">
+        <div class="sv-header">
+            <div style="display:flex;align-items:center;gap:10px;">
+                <img class="sv-avatar" src="" style="width:42px;height:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.5);" alt="">
+                <div>
+                    <div class="sv-name" style="font-weight:600;font-size:0.95rem;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.5);"></div>
+                    <div class="sv-time" style="font-size:0.75rem;color:rgba(255,255,255,0.7);"></div>
+                </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+                <span class="sv-counter" style="font-size:0.8rem;color:rgba(255,255,255,0.7);"></span>
+                <button class="sv-delete-btn" title="Delete status" style="display:none;background:none;border:none;color:rgba(255,100,100,0.9);font-size:1.1rem;cursor:pointer;padding:4px;line-height:1;align-items:center;justify-content:center;"><i class="fas fa-trash-alt"></i></button>
+                <button class="sv-close" style="background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;padding:0;line-height:1;">&times;</button>
+            </div>
+        </div>
+        <div class="sv-progress-bar">
+            <div class="sv-progress-fill"></div>
+        </div>
+        <div class="sv-content"></div>
+        <div class="sv-caption" style="position:absolute;bottom:56px;left:0;right:0;text-align:center;color:#fff;font-size:0.9rem;padding:10px 24px;text-shadow:0 1px 4px rgba(0,0,0,0.8);pointer-events:none;"></div>
+        <div class="sv-views-footer" style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(0,0,0,0.6) 0%,transparent 100%);padding:14px 20px;display:none;align-items:center;gap:8px;color:rgba(255,255,255,0.85);font-size:0.82rem;z-index:2;"></div>
+        <div class="sv-nav">
+            <button class="sv-prev sv-nav-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="sv-next sv-nav-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <audio id="message-sent-sound"></audio>
+    <audio id="message-received-sound"></audio>
+    <script>
+    // Generate notification sounds using Web Audio API
+    function createNotificationSound(type) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return null;
+        try {
+            const ctx = new AudioCtx();
+            const duration = type === 'sent' ? 0.12 : 0.18;
+            const freq1 = type === 'sent' ? 880 : 660;
+            const freq2 = type === 'sent' ? 1100 : 880;
+            const buf = ctx.createBuffer(1, ctx.sampleRate * duration, ctx.sampleRate);
+            const data = buf.getChannelData(0);
+            for (let i = 0; i < data.length; i++) {
+                const t = i / ctx.sampleRate;
+                const env = Math.exp(-t * 15);
+                data[i] = env * (Math.sin(2 * Math.PI * freq1 * t) * 0.4 + Math.sin(2 * Math.PI * freq2 * t) * 0.3);
+            }
+            ctx.close();
+            // Convert to data URL
+            const offCtx = new OfflineAudioContext(1, buf.length, ctx.sampleRate);
+            const src = offCtx.createBufferSource();
+            src.buffer = buf;
+            src.connect(offCtx.destination);
+            src.start();
+            offCtx.startRendering().then(renderedBuf => {
+                const audioEl = document.getElementById(`message-${type}-sound`);
+                if (audioEl) {
+                    // Store buffer for direct playback
+                    audioEl._audioBuffer = renderedBuf;
+                    audioEl._audioCtx = AudioCtx;
+                }
+            });
+        } catch(e) {}
+    }
+
+    // Override play for custom sound
+    document.addEventListener('DOMContentLoaded', () => {
+        ['sent', 'received'].forEach(createNotificationSound);
+
+        // Patch play method
+        ['sent', 'received'].forEach(type => {
+            const el = document.getElementById(`message-${type}-sound`);
+            if (el) {
+                el.play = function() {
+                    try {
+                        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                        const ctx = new AudioCtx();
+                        if (this._audioBuffer) {
+                            const src = ctx.createBufferSource();
+                            src.buffer = this._audioBuffer;
+                            src.connect(ctx.destination);
+                            src.start();
+                            src.onended = () => ctx.close();
+                        }
+                        return Promise.resolve();
+                    } catch(e) { return Promise.resolve(); }
+                };
+            }
+        });
+    });
+    </script>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emoji-mart@latest/dist/emoji-mart.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/recordrtc@latest/RecordRTC.min.js"></script>
+
+    <script src="/static/js/chat.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script src="/static/js/voice.js"></script>
+    <script src="/static/js/emoji.js"></script>
+    <script src="/static/js/media.js"></script>
+    <script src="/static/js/auth.js"></script>
+</body>
+</html>

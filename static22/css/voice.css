@@ -1,0 +1,552 @@
+/* =====================================
+   NEXUS CHAT - VOICE MESSAGING STYLES
+   Beautiful Voice Recording & Playback UI
+   ===================================== */
+
+/* ===== VOICE RECORDING INTERFACE ===== */
+.voice-recording {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--nexus-bg-secondary);
+    border-top: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 0;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 -4px 24px rgba(124, 58, 237, 0.2);
+    animation: slideUpPanel 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    width: 100%;
+}
+
+@keyframes slideUpPanel {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Recording dot indicator */
+.voice-rec-dot {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    background: #EF4444;
+    border-radius: 50%;
+    animation: recBlink 1.2s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.8);
+}
+
+@keyframes recBlink {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Voice Timer */
+.voice-timer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--nexus-text-primary);
+    min-width: 48px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Voice Wave - live canvas container */
+.voice-wave {
+    flex: 1;
+    height: 44px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: rgba(124, 58, 237, 0.08);
+    border: 1px solid rgba(124, 58, 237, 0.15);
+}
+
+/* Voice Actions */
+.voice-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.voice-action-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+.voice-cancel-btn {
+    background: rgba(239, 68, 68, 0.12);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.voice-cancel-btn:hover {
+    background: rgba(239, 68, 68, 0.25);
+    transform: scale(1.08);
+}
+
+.voice-send-btn {
+    background: linear-gradient(135deg, #7C3AED, #10B981);
+    color: white;
+    box-shadow: 0 3px 12px rgba(124, 58, 237, 0.4);
+}
+
+.voice-send-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 5px 16px rgba(124, 58, 237, 0.6);
+}
+
+.voice-send-btn:active, .voice-cancel-btn:active {
+    transform: scale(0.95);
+}
+
+/* ===== VOICE MESSAGE IN CHAT ===== */
+.voice-message {
+    max-width: 280px;
+    background: transparent !important;
+}
+
+.voice-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    padding: 8px 12px;
+    border: 1px solid var(--nexus-border, rgba(255, 255, 255, 0.1));
+    transition: all 0.2s ease;
+}
+
+.voice-player:hover {
+    background: rgba(124, 58, 237, 0.2);
+    border-color: var(--nexus-accent);
+    transform: translateY(-2px);
+}
+
+.play-btn {
+    font-size: 32px;
+    color: var(--nexus-accent);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    filter: drop-shadow(0 2px 5px rgba(124, 58, 237, 0.3));
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    color: var(--nexus-gradient-end, #10B981);
+}
+
+.play-btn:active {
+    transform: scale(0.95);
+}
+
+/* Voice Waveform Container */
+.voice-waveform {
+    flex: 1;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* WaveSurfer Custom Styles */
+.wavesurfer {
+    width: 100%;
+    height: 100%;
+}
+
+.wavesurfer wave {
+    overflow: hidden !important;
+}
+
+.wavesurfer wave::-webkit-scrollbar {
+    display: none;
+}
+
+/* Voice Duration */
+.voice-duration {
+    font-size: 13px;
+    color: var(--nexus-text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    min-width: 45px;
+    text-align: right;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+/* Message Outgoing Voice */
+.message-outgoing .voice-player {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.message-outgoing .play-btn {
+    color: white;
+}
+
+.message-outgoing .voice-duration {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== RECORD BUTTON ANIMATION ===== */
+#voice-record-btn {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+#voice-record-btn.recording {
+    color: #EF4444;
+    animation: recordPulse 1.5s infinite;
+}
+
+@keyframes recordPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 5px #EF4444;
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px #EF4444;
+    }
+}
+
+/* Recording indicator dot */
+#voice-record-btn.recording::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 10px;
+    height: 10px;
+    background: #EF4444;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+    border: 2px solid white;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* ===== VOICE MESSAGE LIST ===== */
+.voice-messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Compact voice player for lists */
+.voice-player-compact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    padding: 4px 10px;
+    border: 1px solid var(--nexus-border, rgba(255, 255, 255, 0.05));
+}
+
+.voice-player-compact .play-btn {
+    font-size: 24px;
+}
+
+.voice-player-compact .voice-waveform {
+    height: 30px;
+}
+
+.voice-player-compact .voice-duration {
+    font-size: 11px;
+    padding: 2px 6px;
+}
+
+/* ===== VOICE NOTES SECTION ===== */
+.voice-notes-section {
+    padding: 16px;
+    border-top: 1px solid var(--nexus-border, rgba(255, 255, 255, 0.1));
+}
+
+.voice-notes-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--nexus-text-secondary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.voice-notes-title i {
+    color: var(--nexus-accent);
+}
+
+/* ===== MICROPHONE PERMISSION STYLES ===== */
+.mic-permission-denied #voice-record-btn {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.mic-permission-denied #voice-record-btn:hover::after {
+    content: 'Microphone access blocked';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #EF4444;
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+
+/* ===== VOLUME VISUALIZATION ===== */
+.voice-volume {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 30px;
+}
+
+.volume-bar {
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to top, #7C3AED, #10B981);
+    border-radius: 2px;
+    animation: volumeBounce 0.5s ease infinite alternate;
+}
+
+.volume-bar:nth-child(1) { animation-delay: 0s; }
+.volume-bar:nth-child(2) { animation-delay: 0.1s; }
+.volume-bar:nth-child(3) { animation-delay: 0.2s; }
+.volume-bar:nth-child(4) { animation-delay: 0.3s; }
+.volume-bar:nth-child(5) { animation-delay: 0.4s; }
+
+@keyframes volumeBounce {
+    0% { height: 20%; }
+    100% { height: 100%; }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .voice-recording {
+        padding: 8px 12px;
+        gap: 10px;
+    }
+
+    .voice-wave {
+        height: 38px;
+    }
+
+    .voice-player {
+        max-width: 220px;
+        padding: 6px 10px;
+    }
+
+    .play-btn {
+        font-size: 28px;
+    }
+
+    .voice-waveform {
+        height: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .voice-recording {
+        padding: 6px 10px;
+        gap: 8px;
+    }
+
+    .voice-timer {
+        font-size: 14px;
+        min-width: 40px;
+    }
+
+    .voice-wave {
+        height: 34px;
+    }
+
+    .voice-action-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .voice-player {
+        max-width: 180px;
+    }
+
+    .play-btn {
+        font-size: 24px;
+    }
+
+    .voice-waveform {
+        height: 30px;
+    }
+
+    .voice-duration {
+        font-size: 11px;
+        min-width: 35px;
+    }
+}
+
+/* ===== DARK THEME SUPPORT ===== */
+.dark-theme .voice-player {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-theme .voice-timer {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* ===== LIGHT THEME SUPPORT ===== */
+.light-theme .voice-recording {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .voice-timer {
+    color: #7C3AED;
+    background: rgba(124, 58, 237, 0.1);
+}
+
+.light-theme .voice-wave::before {
+    opacity: 0.3;
+}
+
+.light-theme .voice-player {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.light-theme .voice-duration {
+    color: #666;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.voice-message {
+    animation: slideInRight 0.3s ease;
+}
+
+/* Recording progress bar */
+.recording-progress {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #7C3AED, #10B981);
+    transform-origin: left;
+    animation: progressShrink 300s linear forwards;
+}
+
+@keyframes progressShrink {
+    from { transform: scaleX(1); }
+    to { transform: scaleX(0); }
+}
+
+/* Voice wave ripple effect */
+.voice-ripple {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,58,237,0.3) 0%, transparent 70%);
+    animation: ripple 2s ease-out infinite;
+    pointer-events: none;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* ===== TOOLTIPS ===== */
+.voice-player[data-tooltip] {
+    position: relative;
+}
+
+.voice-player[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-bottom: 5px;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ===== LOADING STATE ===== */
+.voice-player.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.voice-player.loading .play-btn {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== ERROR STATE ===== */
+.voice-player.error {
+    border-color: #EF4444;
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.voice-player.error .play-btn {
+    color: #EF4444;
+}
+
+/* ===== NEW FEATURES & FIXES ADDED ===== */
+/* Bug 15 & 23: Voice Message UI enhancements */
+.voice-player {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+}
+.message-outgoing .voice-player {
+    background: linear-gradient(135deg, rgba(255,255,255,0.25), rgba(255,255,255,0.1));
+}

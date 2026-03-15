@@ -1,0 +1,96 @@
+Project Improvement Requirements (Detailed Prompt)
+
+1. Fix the “Last Seen” System
+   Currently the “Last Seen” status is stuck and shows the same value (e.g., “5 hours ago”) for every contact. This must be fixed so that the last seen status updates in real time.
+
+Requirements:
+
+- When a user is active on their account or using the app in the browser, their status should show Online.
+- When the user closes the browser, switches tabs for a long time, or turns off the screen, the status should automatically change to Offline.
+- The system should display the exact last seen time, such as “Last seen 2 minutes ago”, “Last seen 1 hour ago”, etc.
+- The Online / Offline indicator (green dot or tick) must update automatically in real time.
+- This update should happen instantly without requiring a page refresh.
+
+2. Real-Time Updates Without Page Refresh
+   Currently, the page must be refreshed to see new updates such as messages or profile changes. This should be changed so everything updates automatically in real time.
+
+Requirements:
+
+- No page refresh should be required.
+- When a user sends a new message, it should appear immediately for the receiver.
+- When a user sends a voice message, it should appear instantly.
+- If a user changes their name or profile information, it should update immediately everywhere.
+- All updates must appear instantly in:
+  - Chat area
+  - Contact list
+  - New screens
+  - Profile sections
+- The entire system should behave like a real-time messaging app.
+
+3. Voice Message Recording UI Fix
+   Voice messaging works, but the recording interface is not functioning correctly.
+
+Fix the following:
+
+- When the Voice button is clicked, recording should start immediately.
+- A voice waveform / voice bar animation should appear while recording.
+- The animation should move according to the audio input.
+- When the Send button is pressed, the voice message should be sent instantly.
+- The recording interface should look smooth and modern.
+
+4. Chat Screen UI and CSS Improvements
+   The chat interface needs a UI and styling improvement.
+
+Improve:
+
+- Message bubble design
+- Overall chat page layout
+- Message alignment and spacing
+- Colors and background design
+
+Update the bottom chat area:
+
+- Voice recording icon
+- Message input box
+- Send message button
+
+Design requirements:
+
+- Smooth and modern interface
+- Similar to high-quality modern chat apps
+- Clean and professional typography
+- Better font selection
+- Smooth animations and transitions
+
+5. Prevent Automatic Logout on Refresh
+   Sometimes when the page is refreshed, the login screen appears even though the user is already logged in. This should not happen.
+
+Requirements:
+
+- Once a user logs in, the session should remain active.
+- Refreshing the page should not log out the user.
+- The user should remain logged in until they manually click Logout.
+- Implement proper session persistence.
+
+6. Improve Overall UI and Fonts
+   Enhance the entire UI design of the application.
+
+Requirements:
+
+- Use clean and modern fonts
+- Improve spacing, colors, and alignment
+- Make the interface look professional and stylish
+- Ensure consistency across all pages
+
+7. Improve Login Screen Design
+   The login page should be redesigned.
+
+Requirements:
+
+- The login screen should use the full page layout, not a small centered box.
+- The background and layout should look modern and attractive.
+- The design should match the overall theme of the application.
+- The login page should feel like part of a premium modern app.
+
+Final Goal
+The entire application should feel smooth, modern, and responsive like a professional messaging platform, with real-time updates, improved UI, and a clean user experience.

@@ -1,0 +1,366 @@
+/* =====================================
+   NEXUS CHAT - MODAL STYLES v2.0
+   All Modals Consistent Premium Design
+   ===================================== */
+
+/* All styles for modals are handled in main.css */
+/* This file extends with specialized modal variants */
+
+/* ===== PROFILE VIEW MODAL - FULL PAGE STYLE ===== */
+#profile-view-modal .modal-content {
+    max-width: 400px;
+    overflow: hidden;
+}
+
+#profile-view-modal .modal-body {
+    padding: 0;
+}
+
+.profile-view-header-bg {
+    height: 140px;
+    background: var(--nexus-gradient);
+    position: relative;
+    display: flex; align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 0;
+}
+
+.profile-view-avatar-wrap {
+    position: relative;
+    margin: -50px auto 0;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}
+
+.profile-view-body {
+    padding: 12px 24px 24px;
+    text-align: center;
+}
+
+.profile-view-name {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+.profile-view-status-text {
+    font-size: 0.8rem;
+    color: var(--nexus-teal);
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.profile-view-about {
+    color: var(--nexus-text-secondary);
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+.profile-view-email {
+    color: var(--nexus-text-muted);
+    font-size: 0.82rem;
+    margin-bottom: 20px;
+}
+.profile-view-actions {
+    display: flex; gap: 12px;
+}
+.profile-view-actions .nexus-btn { flex: 1; padding: 11px 16px; }
+
+/* ===== MEDIA VIEWER FULL SCREEN ===== */
+#media-viewer-modal {
+    padding: 0;
+}
+#media-viewer-modal .media-viewer-content {
+    width: 100%; height: 100vh;
+    max-width: 100%; max-height: 100vh;
+    padding: 20px;
+    justify-content: center;
+}
+#media-viewer-modal .media-container {
+    flex: 1; display: flex;
+    align-items: center; justify-content: center;
+    max-width: 92vw;
+}
+#media-viewer-modal .media-container img {
+    max-height: 80vh; object-fit: contain;
+    border-radius: var(--r-lg);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+}
+#media-viewer-modal .media-actions {
+    padding: 16px 0 0;
+}
+#media-viewer-modal .close-media {
+    position: fixed; top: 20px; right: 20px;
+    width: 44px; height: 44px;
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+/* ===== CHAT MENU MODAL ===== */
+#chat-menu-modal.active {
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-top: 64px;
+}
+#chat-menu-modal .menu-modal {
+    position: relative;
+    top: 0; right: 0;
+    margin: 0 8px 0 0;
+}
+
+/* ===== SEARCH CHAT MODAL ===== */
+#search-chat-modal .modal-content { max-width: 500px; }
+#search-chat-modal .search-results { margin-top: 8px; }
+
+/* ===== QR MODAL ===== */
+#qr-modal .modal-content { max-width: 320px; }
+
+/* ===== DOCUMENT PREVIEW IN MEDIA VIEWER ===== */
+.document-preview {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 16px; padding: 48px;
+    color: var(--nexus-text-secondary);
+    text-align: center;
+}
+.document-preview i { color: var(--nexus-accent); }
+.document-preview h3 { font-size: 1rem; font-weight: 600; color: var(--nexus-text-primary); }
+.document-preview p { font-size: 0.85rem; }
+
+/* ===== CREATE GROUP / BROADCAST MODAL ===== */
+#create-group-modal .modal-content,
+#create-broadcast-modal .modal-content {
+    max-height: 80vh;
+}
+
+/* ===== SEARCH IN MESSAGES ===== */
+.search-highlight {
+    background: rgba(139,92,246,0.3);
+    border-radius: 3px;
+    padding: 1px 2px;
+    color: var(--nexus-text-primary);
+    font-weight: 600;
+}
+
+/* ===== NOTIFICATION BADGE ===== */
+.notification-badge {
+    position: absolute;
+    top: -4px; right: -4px;
+    min-width: 18px; height: 18px;
+    background: var(--nexus-busy);
+    border-radius: var(--r-full);
+    font-size: 0.65rem; font-weight: 700;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    border: 2px solid var(--nexus-bg-secondary);
+    padding: 0 3px;
+}
+
+/* ===== PERMISSION MODAL ===== */
+.permission-modal-content {
+    text-align: center; padding: 32px 24px;
+}
+.permission-icon {
+    font-size: 3.5rem;
+    color: var(--nexus-accent);
+    margin-bottom: 16px;
+    display: block;
+}
+.permission-title {
+    font-size: 1.2rem; font-weight: 700;
+    margin-bottom: 8px;
+}
+.permission-desc {
+    color: var(--nexus-text-secondary);
+    font-size: 0.88rem; line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+/* ===== SETTINGS MODAL BODY ===== */
+.settings-body { padding-top: 4px; }
+
+/* ===== THEME MODAL ===== */
+#theme-modal .modal-content { max-width: 360px; }
+
+/* ===== NOTIFICATION SETTINGS ===== */
+#notifications-modal .modal-content { max-width: 380px; }
+
+/* ===== MEMBERS SEARCH ===== */
+.members-search { margin-bottom: 12px; }
+.members-search .input-group { margin-bottom: 0; }
+
+/* === BACK DROP CLICK TO CLOSE === */
+.modal { cursor: default; }
+
+/* ===== NEW FEATURES & FIXES ADDED ===== */
+
+/* Bug 2: Blocked Users Modal Styles */
+#blocked-users-list .blocked-user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+/* Feature 38: Logout Confirmation Modal */
+#logout-confirm-modal .modal-content {
+    border-radius: 24px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Feature 37: Wallpapers selection style */
+.wallpaper-option.selected {
+    border-color: var(--nexus-teal) !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(6, 214, 160, 0.3);
+}
+
+/* Feature 13: Status Modal */
+#status-upload-modal .modal-content {
+    max-width: 350px;
+}
+
+/* ===== STATUS VIEWER FULLSCREEN ===== */
+.status-viewer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.status-viewer-overlay.active { display: flex; }
+
+.sv-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%);
+    z-index: 2;
+}
+
+.sv-progress-bar {
+    position: absolute;
+    top: 72px; left: 12px; right: 12px;
+    height: 3px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    z-index: 2;
+    overflow: hidden;
+}
+.sv-progress-fill {
+    height: 100%;
+    background: #fff;
+    width: 0%;
+    border-radius: 2px;
+}
+
+.sv-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.sv-content img, .sv-content video {
+    max-width: 100vw;
+    max-height: 100vh;
+    object-fit: contain;
+}
+.sv-text-status {
+    color: #fff;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    font-weight: 600;
+    text-align: center;
+    padding: 40px;
+    line-height: 1.5;
+    background: var(--nexus-gradient);
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sv-nav {
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    pointer-events: none;
+    z-index: 2;
+}
+.sv-nav-btn {
+    pointer-events: all;
+    background: rgba(0,0,0,0.4);
+    border: none;
+    color: #fff;
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+    transition: background 0.2s;
+}
+.sv-nav-btn:hover { background: rgba(124,58,237,0.6); }
+
+/* ===== STORY VIEWER LOADING SPINNER ===== */
+.sv-loading-spinner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background: rgba(0,0,0,0.3);
+    pointer-events: none;
+}
+.sv-spinner-ring {
+    width: 48px;
+    height: 48px;
+    border: 4px solid rgba(255,255,255,0.25);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: sv-spin 0.75s linear infinite;
+}
+@keyframes sv-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== EMOJI PICKER IMPROVEMENTS ===== */
+.emoji-picker-container {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    max-width: 360px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    border: 1px solid rgba(139,92,246,0.2);
+    background: var(--nexus-bg-card);
+}
+em-emoji-picker {
+    --background-rgb: var(--nexus-bg-card, #1A2035);
+    --border-radius: 16px;
+    --category-icon-size: 18px;
+    --font-family: 'Plus Jakarta Sans', sans-serif;
+    --font-size: 15px;
+    width: 100%;
+    height: 350px;
+}

@@ -1,0 +1,14 @@
+{
+  "emnaimat@gmail.com": {
+    "email": "emnaimat@gmail.com",
+    "theme": "dark",
+    "notifications": true,
+    "sound": true,
+    "vibration": true,
+    "preview": true,
+    "lastSeen": "everyone",
+    "profilePhoto": "nobody",
+    "autoDownload": "wifi",
+    "backup": false
+  }
+}

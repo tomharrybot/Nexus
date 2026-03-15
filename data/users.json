@@ -1,0 +1,41 @@
+[
+  {
+    "email": "farebi.amir0786@gmail.com",
+    "username": "farebi.amir0786",
+    "id": "64e83269-3452-4ff7-a282-c1d98b25ce21",
+    "createdAt": "2026-03-12T00:28:02.893728",
+    "profile": {
+      "name": "farebi.amir0786",
+      "about": "Hey there! I'm using Nexus Chat",
+      "avatar": "/uploads/avatars/41666736-4d81-4e9c-96f5-1d2d07e61514.jpg",
+      "lastSeen": "2026-03-15T04:48:10.262854Z",
+      "online": false
+    },
+    "settings": {
+      "theme": "dark",
+      "notifications": true,
+      "sound": true,
+      "vibration": true,
+      "preview": true
+    }
+  },
+  {
+    "email": "emnaimat@gmail.com",
+    "username": "emnaimat",
+    "id": "38363269-ae00-4623-ae16-ac83cf28b6be",
+    "createdAt": "2026-03-14T07:49:22.391713Z",
+    "profile": {
+      "name": "Naimat Ali ",
+      "about": "Hey there! I'm using Nexus Chat",
+      "avatar": "/uploads/avatars/05f829a3-96f4-444a-acf9-431ae433a44e.jpg",
+      "lastSeen": "2026-03-14T08:06:15.067132Z"
+    },
+    "settings": {
+      "theme": "dark",
+      "notifications": true,
+      "sound": true,
+      "vibration": true,
+      "preview": true
+    }
+  }
+]

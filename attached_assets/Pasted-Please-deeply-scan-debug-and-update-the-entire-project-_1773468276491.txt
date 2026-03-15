@@ -1,0 +1,71 @@
+Please deeply scan, debug, and update the entire project properly. Do a complete analysis of all files (HTML, CSS, JavaScript, and backend if present). Identify the root causes of the issues and perform real fixes instead of temporary adjustments.
+
+Carefully review the full codebase, check console errors, event handling, data flow, storage logic, and UI rendering. Ensure all features work smoothly and reliably.
+
+The following issues must be fixed:
+
+1. Voice Message Upload and Sending
+   Voice recording works, but when the send button is clicked the voice message is neither uploaded nor sent. Fix this so voice messages can be properly uploaded and delivered.
+
+2. Group Display Picture (DP) Issue
+   When updating or uploading a group display picture, the image does not update correctly. Ensure the group DP updates instantly and displays correctly for all users.
+
+3. Group Creation – Contact List
+   When creating a group, only users that are already saved in the contact list should appear. Modify the system so that only the user’s contacts are displayed for group selection.
+
+4. Status / Stories Viewing Issue
+   Statuses or stories can be sent and they appear in the list, but when clicking on them they do not open or play.
+
+Fix the status system so that:
+
+- Status media opens and displays when clicked.
+- Users can upload media with captions (similar to WhatsApp).
+- A caption input field is available when uploading status media.
+- Status views update in real time and display the number of viewers.
+
+5. User Profile Page Design
+   The user profile page CSS is currently broken and poorly structured. Redesign the profile page with a premium-style layout.
+
+Requirements:
+
+- Clean and modern layout
+- Proper spacing and alignment
+- Attractive typography
+- Well-organized profile sections
+- Remove the “Media Gallery” option from the user profile page completely.
+
+6. Time Zone Issue
+   The time inside the app is about 5 hours behind Pakistan time. Fix the time system so timestamps correctly follow Pakistan Standard Time.
+
+7. Main Screen Title Font
+   On the main screen where “Nexus” is displayed, improve the font style so it looks modern, attractive, and visually appealing.
+
+8. Emoji Panel
+   When clicking the emoji button, emojis should appear properly like WhatsApp.
+
+Requirements:
+
+- Emoji panel opens smoothly.
+- Emojis load instantly.
+- Use iOS-style emoji appearance.
+- Fix the emoji font and rendering issues.
+
+9. Random Auto Refresh Issue
+   Sometimes the page behaves as if it refreshes automatically. This must be investigated and fixed so the application runs smoothly without unexpected reload behavior.
+
+10. Deep System Check
+    Perform a deep scan of the entire project and:
+
+- Detect hidden bugs
+- Fix JavaScript errors
+- Resolve CSS layout issues
+- Improve UI consistency
+- Ensure stable real-time behavior
+
+Final Requirements:
+
+- All fixes must be real and permanent.
+- Ensure smooth performance and correct functionality across the entire application.
+- Update all project files accordingly.
+- Keep the file structure clean and organized.
+- Ensure the application works properly without unexpected refreshes or broken features.

@@ -1,0 +1,214 @@
+CHAT APP BUGS, FIXES & FEATURES LIST
+
+This chat application currently contains many glitches and bugs that must be fixed. The following issues and features must be added and improved.
+
+1. Online / Offline Status Bug
+The most important bug is the Last Seen and Online/Offline status.
+Currently it only updates after refreshing the page. This should not happen.
+The status should update immediately in real time without refreshing the page.
+
+2. Blocked Users Management
+There should be a button in the menu for "Blocked Users".
+Inside this section all blocked users should be visible.
+The user who blocked someone should be able to unblock them from there.
+
+3. Clear Chat Problem
+When a user clicks "Clear Chat", the chat disappears temporarily.
+But after refreshing the page the chat comes back again.
+This must be fixed so that the chat is permanently deleted.
+
+4. Voice Recording Issue
+Voice recording works but the voice message does not send.
+Fix the system so voice messages can be recorded and sent properly.
+
+5. Chat Screen UI Problem
+The chat screen design is not good.
+
+Currently messages appear like this:
+
+Hi
+Kesy
+Ho
+
+They should appear in a single proper line like:
+
+Hi kesy ho thek ho
+
+Message bubbles should be wider and better designed.
+
+6. Emoji Display Problem
+Emojis are displayed in a bad way.
+The emoji font and CSS are not good.
+Use better emojis like iPhone style emojis.
+
+7. Profile Save Loading
+When saving profile information there should be a loading animation.
+Currently no loading is shown.
+
+8. Login Button Loader
+When entering email and clicking continue on login, a loading spinner appears on the side of the button.
+The spinner should appear in the center of the button.
+
+9. Mobile View Problem
+In Chrome mobile view the chat screen layout breaks.
+Fix the mobile responsiveness.
+
+10. Account Security
+There is no proper session or security system.
+One account should only be logged in on one mobile/device.
+
+If someone logs into the same account on another device:
+• A notification should be sent to the currently logged in device
+• The new login should require approval before access is granted
+
+11. Add Contact UI Problem
+When searching users to add contacts, the CSS layout is broken.
+Users are not properly displayed in the list.
+Fix the user search result display.
+
+12. Group Creation Problem
+Groups cannot be created properly.
+Fix the group creation feature.
+
+13. Status / Stories Feature
+Add a Status tab like WhatsApp or Facebook Stories.
+
+Users should be able to upload:
+• Images
+• Videos
+• Text stories
+
+These stories should appear to all contacts of that user in the Status tab.
+
+14. Broadcast Feature
+The broadcast feature is not working properly.
+Fix broadcast messaging.
+
+15. Voice Message UI
+When voice messages are sent or received in chat, the CSS layout is broken.
+The voice message appears half styled.
+Fix the voice message UI.
+
+16. File Upload Problem
+When sending an image or video, it should automatically disappear from the upload files section after sending.
+
+17. Screenshot Notification
+Screenshot notification feature is not working.
+It should detect screenshots and notify the other user.
+
+18. Push Notifications
+Push notifications are not working.
+Notifications should appear when a new message is received.
+Implement push notifications without Firebase.
+
+19. Permission Problem
+Every time the page refreshes it asks again for microphone and media permissions.
+Permissions should only be requested once.
+
+20. Incorrect Time Display
+The app shows incorrect time.
+Example: app shows 11:32 while the actual time is 4:32.
+Fix the time system.
+
+21. Main Screen Title
+The "Nexus" text on the main screen appears on the side.
+It should be centered, bold and styled with a good font.
+
+22. QR Code Issue
+QR code is not working or showing.
+Fix QR code generation and display.
+
+23. Chat Background Design
+The chat screen should have a beautiful background.
+Message bubbles should look smooth and modern.
+
+Voice messages should also have a good style.
+
+24. Media Display
+Images and videos sent in chat should appear properly with good layout and preview.
+
+25. Offline Message Sending
+If internet is off, messages and media should still send but show no tick.
+
+Like WhatsApp:
+• When internet reconnects, the message should automatically upload
+• Tick marks should appear
+
+Voice messages should also behave like this.
+
+26. Sidebar Menu
+The sidebar menu appears slightly shifted to the side.
+Fix its alignment.
+
+27. Voice Call and Video Call
+When clicking voice call or video call show:
+"Feature Coming Soon"
+
+Use good icons for these features.
+
+28. Icon Improvements
+Some icons appear twice after sending voice messages.
+Replace all icons with better modern icons.
+
+Improve icons for:
+• Send message
+• Emoji
+• Voice recording
+• Attachments
+
+29. Push Notification System
+Push notifications should work without Firebase and show new message alerts.
+
+30. Message Tick System
+Single tick, double tick and seen ticks are already working but should be improved and enhanced.
+
+31. Add New Features
+Add additional useful features for a chat application and fun interactions.
+
+32. Security and Support
+The following sections should work properly:
+• Security
+• Privacy
+• Support
+• Help
+
+33. Profile View
+When clicking on a user's name or profile picture in chat, their profile should open.
+
+Inside the profile show:
+• Images
+• Videos
+• Audio
+• Links
+
+These should appear in small preview boxes like WhatsApp media gallery.
+
+34. Search and Start New Chat
+Search feature and "Start New Chat" should work properly.
+
+35. Login Email Notification
+When logging in, send an email notification and welcome message with styling.
+
+36. Themes
+Add multiple UI themes.
+
+37. Chat Wallpapers
+Users should be able to select chat wallpapers.
+
+38. Logout Confirmation
+Before logging out, show confirmation.
+
+39. Login Page Improvements
+Increase the size of loading animations.
+Code input should accept numbers only.
+
+Improve the Nexus icon and make it look like a professional chat app.
+
+40. Login Location Feature
+Add a feature showing where the user logged in from.
+
+41. Emoji Style
+Use iPhone style emojis.
+
+42. Urdu Font Support
+Messages should support Urdu using the "Noto Nastaliq Urdu" font.

@@ -1,0 +1,26 @@
+[
+  {
+    "email": "farebi.amir0786@gmail.com",
+    "name": "farebi.amir0786",
+    "avatar": "/uploads/avatars/41666736-4d81-4e9c-96f5-1d2d07e61514.jpg",
+    "about": "Hey there! I'm using Nexus Chat",
+    "addedAt": "2026-03-12T00:31:13.456240",
+    "lastMessage": "Hi",
+    "lastTime": "2026-03-14T07:04:53.626201Z",
+    "unreadCount": 0,
+    "status": {
+      "online": false,
+      "lastSeen": "2026-03-12T09:56:58.882732"
+    }
+  },
+  {
+    "email": "mshabir28620@gmail.com",
+    "name": "mshabir28620",
+    "avatar": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237C3AED'%3E%3Cpath d='M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-6.627 0-12 5.373-12 12h24c0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E",
+    "about": "Hey there! I'm using Nexus Chat",
+    "addedAt": "2026-03-12T11:46:08.350187",
+    "unreadCount": 0,
+    "lastMessage": "Jedy",
+    "lastTime": "2026-03-13T10:53:30.427943"
+  }
+]
